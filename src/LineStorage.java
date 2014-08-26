@@ -50,22 +50,65 @@ public class LineStorage {
 	}*/
 	
 	private static ArrayList<ArrayList<ArrayList<Character>>> data = new ArrayList<ArrayList<ArrayList<Character>>>();
+	private static ArrayList<String> wordsToIgnore = new ArrayList<String>();
 	
-	public void getChar(int l, int w, int c) {
-		
-		
+	public Character getChar(int l, int w, int c) {
+		Character ch = data.get(l).get(w).get(c);
+		return ch;
 	}
 	
 	// Method to store the word w at w-th position in l-th line into data
 	// @params
 	// 			l: int, w: int, word: String
-	public void setWord(int l, int w, String word){
+	public void setWord(int l, int w, String word) {
 		
 		//check if l and w valid
+		/******errors*******/
+		if(l<0) { //error
 		
-		for (char c : word.toCharArray()) {
-			data.get(l).get(w).add(c);
 		}
+		
+		if(l > getNumLines()) {
+		}//add line, but l must be only 1 size larger than data, if not error
+			
+		
+		if(l < getNumLines()-1) {
+			
+			
+		}
+			
+		if(w<0) {
+				
+		}
+		
+		if(w > getNumWords(l)) {
+			
+		}
+			
+		if(w < getNumWords(l)-1) {
+			
+		}
+		
+		//if(c != getNumChars(l,w)) {//char must be at the exact position
+			
+		//}
+		/******errors*******/
+		ArrayList<Character> temp = new ArrayList<Character>();
+		ArrayList<ArrayList<Character>> temp1 = new ArrayList<ArrayList<Character>>();
+
+		if(l == getNumLines()) {			//add new line
+			if(w == getNumWords(l)) {		//add new word
+				//data.
+				for (char c : word.toCharArray()) {
+					temp.add(c);
+				}
+				
+				temp1.add(temp);
+				data.add(temp1);	
+			}
+		}
+		
+		else {}//error
 	}
 	
 	// Method to get word at i-th index in j-th line from data
@@ -91,7 +134,10 @@ public class LineStorage {
 	// 		j: int
 	// @return
 	//		num: int
-	public int getNumWord(int l){
+	public int getNumWords(int l){
+		if(data.isEmpty())
+			return 0;
+		
 		return data.get(l).size();
 	}
 	
@@ -100,7 +146,18 @@ public class LineStorage {
 	}
 	
 	public int getNumChars(int l, int w) {
+		if(data.get(l).isEmpty())
+			return 0;
+		
 		return data.get(l).get(w).size();		
+	}
+	
+	public ArrayList<String> getWordsToIgnore() {
+		return wordsToIgnore;		
+	}
+	
+	public void setWordsToIgnore(ArrayList<String> words) {
+		wordsToIgnore = words;		
 	}
 	
 	public void deleteWord(int l, int w) {

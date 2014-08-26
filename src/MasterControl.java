@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 // Class for overall control of all activities
@@ -11,7 +12,12 @@ public class MasterControl {
 		do {
 			
 			//call input to read into line storage
-			Input.read();
+			try {
+				Input.readFile();
+			}
+			catch(IOException e) {
+				e.printStackTrace();
+			}
 			
 			//call circular shift
 	
