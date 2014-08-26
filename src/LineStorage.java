@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class LineStorage {
 	
-	private class Data<T> extends ArrayList<ArrayList<ArrayList<T>>> {
+	/*private class Data<T> extends ArrayList<ArrayList<ArrayList<T>>> {
 
 		private static final long serialVersionUID = 1L;
 		
@@ -47,21 +47,25 @@ public class LineStorage {
 	    }
 		
 		
-	}
-
+	}*/
+	
+	private static ArrayList<ArrayList<ArrayList<Character>>> data = new ArrayList<ArrayList<ArrayList<Character>>>();
 	
 	public void getChar(int l, int w, int c) {
 		
 		
 	}
 	
-	// Method to store the word w at i-th position in j-th line
-	// into the data
+	// Method to store the word w at w-th position in l-th line into data
 	// @params
-	// 		w: String, i: int, j: int
-	// @return
-	public void setWord(int i, int j, String w){
+	// 			l: int, w: int, word: String
+	public void setWord(int l, int w, String word){
 		
+		//check if l and w valid
+		
+		for (char c : word.toCharArray()) {
+			data.get(l).get(w).add(c);
+		}
 	}
 	
 	// Method to get word at i-th index in j-th line from data
@@ -71,40 +75,43 @@ public class LineStorage {
 	// @return
 	//		w: String
 	public String getWord(int l, int w){
-		String w = "";
-		return w;
+		//check if l and w empty/exceed 
+		ArrayList<Character> word = data.get(l).get(w);
+		
+		StringBuilder builder = new StringBuilder(word.size());
+		for(Character ch: word)
+		{
+			builder.append(ch);
+		}
+		return builder.toString();
 	}
 	
-	// Method to get the number of words in j-th line
+	// Method to get the number of words in l-th line
 	// @params
 	// 		j: int
 	// @return
 	//		num: int
 	public int getNumWord(int l){
-		int num = 0;
-		return num;
+		return data.get(l).size();
 	}
 	
 	public int getNumLines(){
-		int numLine = 0;
-		return numLine;
+		return data.size();
 	}
 	
 	public int getNumChars(int l, int w) {
-		
-		
-		
+		return data.get(l).get(w).size();		
 	}
 	
-	
-	public void deleteWord() {
-		
-		
-		
+	public void deleteWord(int l, int w) {
+		//check if word exist
+		data.get(l).remove(w);
+		return;
 	}
 
-	public void deleteLine() {
-		
-		
+	public void deleteLine(int l) {
+		//check if line exist
+		data.remove(l);
+		return;
 	}
 }
