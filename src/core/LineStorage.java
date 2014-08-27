@@ -1,3 +1,5 @@
+package core;
+
 import java.util.ArrayList;
 
 // class to create, access, and possibly delete characters, words, and lines.

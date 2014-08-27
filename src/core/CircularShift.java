@@ -44,7 +44,7 @@ public class CircularShift {
 		int numLines = lineStorage.getNumLines();
 		for (int i=0; i<numLines; i++){
 			normalLines.add(new ArrayList<String>());
-			int numWords = lineStorage.getNumWord(i);
+			int numWords = lineStorage.getNumWords(i);
 			for (int j=0; j<numWords; j++){
 				normalLines.get(i).add(lineStorage.getWord(i, j));
 			}

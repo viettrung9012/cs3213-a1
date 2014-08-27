@@ -30,7 +30,7 @@ public class LineStorageStub extends LineStorage {
 	public int getNumLines(){
 		return storage.size();
 	}
-	public int getNumWord(int i){
+	public int getNumWords(int i){
 		return storage.get(i).size();
 	}
 	public String getWord(int i, int j){
