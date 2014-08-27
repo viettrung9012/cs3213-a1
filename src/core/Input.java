@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Input {
-	
+	private static LineStorage ls;
 	// Description: Read input from file and save into Line Storage module.
 	// @return
 	//		void
@@ -74,8 +74,8 @@ public class Input {
 			String s;
 			String []title = null;
 			List<String> temp;
-			LineStorage ls = new LineStorage();
-
+			ls = new LineStorage();
+			
 			while (i < noOfTitles) {
 				s = br.readLine();
 				if(s != null)
@@ -85,16 +85,17 @@ public class Input {
 				for(int j=0; j<temp.size(); j++) {
 					ls.setWord(i, j, temp.get(j));	
 					System.out.println(temp.get(j));
-				}				
+				}
+				i++;
 			}
 			
 			line = br.readLine();
 			int noOfWordsIgnore = Integer.parseInt(line);
-			
 			i = 0;
 			ArrayList<String> wordsIgnore = new ArrayList<String>();
 			while (i < noOfWordsIgnore) {
 				wordsIgnore.add(br.readLine());
+				i++;
 			}
 			
 			for(int k=0; k<wordsIgnore.size(); k++)
@@ -109,5 +110,8 @@ public class Input {
 				fStream.close();					
 			}
 		}		
+	}	
+	public static LineStorage getLineStorage(){
+		return ls;
 	}
 }

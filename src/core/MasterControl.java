@@ -22,11 +22,14 @@ public class MasterControl {
 			}
 			
 			//call circular shift
-	
+				CircularShift cs = new CircularShift(Input.getLineStorage());
+				cs.run();
 			//call alphabetic shift
-			
+				AlphabeticShift as = new AlphabeticShift(cs);
+				as.alpha();
 			//call output
-			
+				Output out = new Output(as);
+				out.print();
 			//repeat program
 			System.out.print("Do you wish to continue? (Y/N)");
 			Scanner sc = new Scanner(System.in);
