@@ -29,10 +29,7 @@ public class ShiftTest {
 	public void testAlphabeticShift(){
 		LineStorage ls = new LineStorageStub();
 		CircularShift cs = new CircularShift(ls);
-		String[] noise = {"is", "the", "of", "and", "as", "a", "after"};
-		cs.addNoise(noise);
-		cs.addData();
-		cs.circularShift();
+		cs.run();
 		AlphabeticShift as = new AlphabeticShift(cs);
 		as.alpha();
 		assertEquals(as.getNumLines(), 6);

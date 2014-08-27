@@ -24,14 +24,22 @@ public class CircularShift {
 		noiseWords = new HashSet<String>();
 	}
 	
+	// Method to run circular shift
+	public void run(){
+		addNoise();
+		addData();
+		circularShift();
+	}
+	
 	// Method to setup circular shift as well as read in noise words
 	// @params
 	//		noiseWords: String[];
 	// @return
 	//		void
-	public void addNoise(String[] noise){
-		for (int i=0; i<noise.length; i++){
-			noiseWords.add(noise[i]);
+	public void addNoise(){
+		ArrayList<String> noise = lineStorage.getWordsToIgnore();
+		for (int i=0; i<noise.size(); i++){
+			noiseWords.add(noise.get(i));
 		}
 	}
 	

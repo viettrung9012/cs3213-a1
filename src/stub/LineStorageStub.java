@@ -8,6 +8,7 @@ import core.LineStorage;
 
 public class LineStorageStub extends LineStorage {
 	private ArrayList<ArrayList<String>> storage;
+	private ArrayList<String> noise;
 	public LineStorageStub(){
 		storage = new ArrayList<ArrayList<String>>();
 		ArrayList<String> one = new ArrayList<String>();
@@ -26,6 +27,14 @@ public class LineStorageStub extends LineStorage {
 		storage.add(one);
 		storage.add(two);
 		storage.add(three);
+		noise = new ArrayList<String>();
+		noise.add("is");
+		noise.add("the");
+		noise.add("of");
+		noise.add("and");
+		noise.add("as");
+		noise.add("a");
+		noise.add("after");
 	}
 	public int getNumLines(){
 		return storage.size();
@@ -35,5 +44,8 @@ public class LineStorageStub extends LineStorage {
 	}
 	public String getWord(int i, int j){
 		return storage.get(i).get(j);
+	}
+	public ArrayList<String> getWordsToIgnore(){
+		return noise;
 	}
 }
