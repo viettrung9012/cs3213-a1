@@ -1,5 +1,4 @@
-package core;
-
+//package core;
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
