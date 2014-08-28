@@ -1,5 +1,7 @@
 import java.io.BufferedWriter;
-import java.io.OutputStreamWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 
 // class to display output
@@ -14,12 +16,26 @@ public class Output {
 	//		null
 	// @return
 	//		void
-	public void print(){
-		PrintWriter pr = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
-		int numLines = alphabeticShift.getNumLines();
-		for (int i=0; i<numLines; i++){
-			pr.println(alphabeticShift.ith(i));
+	public void print(String output){
+		PrintWriter pr;
+		File out = new File(output);
+		if (!out.exists()){
+			try {
+				out.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		pr.close();
+		try {
+			pr = new PrintWriter(new BufferedWriter(new FileWriter(output)));
+			int numLines = alphabeticShift.getNumLines();
+			for (int i=0; i<numLines; i++){
+				pr.println(alphabeticShift.ith(i));
+			}
+			pr.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

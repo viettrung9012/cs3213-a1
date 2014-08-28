@@ -20,6 +20,6 @@ public class MasterControl {
 		
 		//call output
 		Output out = new Output(as);
-		out.print();
+		out.print(args[2]);
 	}
 }
