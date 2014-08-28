@@ -35,7 +35,7 @@ public class CircularShift {
 	//		noiseWords: String[];
 	// @return
 	//		void
-	public void addNoise(){
+	private void addNoise(){
 		ArrayList<String> noise = lineStorage.getWordsToIgnore();
 		for (int i=0; i<noise.size(); i++){
 			noiseWords.add(noise.get(i).toLowerCase());
@@ -47,7 +47,7 @@ public class CircularShift {
 	//		null
 	// @return
 	//		void
-	public void addData(){
+	private void addData(){
 		int numLines = lineStorage.getNumLines();
 		for (int i=0; i<numLines; i++){
 			normalLines.add(new ArrayList<String>());
@@ -63,7 +63,7 @@ public class CircularShift {
 	// 		null
 	// @return
 	// 		void
-	public void circularShift(){
+	private void circularShift(){
 		int numLines = normalLines.size();
 		for (int i=0; i<numLines; i++){
 			int numWords = normalLines.get(i).size();
@@ -112,34 +112,5 @@ public class CircularShift {
 	//		String: the shifted line at n
 	public String getShiftedLines(int n){
 		return shiftedLines.get(n);
-	}
-	
-	// Method to set the i-th character of j-th word in k-th circular shift as c
-	// @params
-	//		i: int, j: int, k: int, c: int
-	// @return
-	//		void
-	public void setChar(int i, int j, int k, int c){
-	
-	}
-	
-	// Method to get the i-th character from j-th word in k-th circular shift
-	// @params
-	//		i: int, j: int, k: int
-	// @return
-	//		c: char
-	public char getChar(int i, int j, int k){
-		char c = 0;
-		return c;
-	}
-	
-	// Method to get the number of words from the k-th circular shift
-	// @params
-	//		k: int
-	// @return
-	//		num: int
-	public int getNumWord(int k){
-		int num = 0;
-		return num;
 	}
 }
