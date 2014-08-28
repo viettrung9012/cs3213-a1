@@ -3,9 +3,9 @@ import java.io.IOException;
 // Class for overall control of all activities
 // @author: Boo Kuok Liang A0087547N
 public class MasterControl {
-	public static void main(String args[]){		
+	public static void main(String args[]){	
 		try {
-			Input.readFile();
+			Input.readFile(args[0], args[1]);
 		} catch(IOException e) {
 			e.getMessage();
 		}

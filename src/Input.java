@@ -12,14 +12,14 @@ import java.io.InputStreamReader;
 public class Input {
 	private static LineStorage ls = new LineStorage();
 	
-	public static void readFile() throws IOException {
+	public static void readFile(String titles, String noises) throws IOException {
 		
 		FileInputStream fStream = null;		
 		DataInputStream in = null;
 		BufferedReader br = null;
 		
 		try{
-			fStream = new FileInputStream("movies2.txt");
+			fStream = new FileInputStream(titles);
 			in = new DataInputStream(fStream);
 			br = new BufferedReader(new InputStreamReader(in));
 			String line;
@@ -42,7 +42,7 @@ public class Input {
 			
 			br.close();
 			
-			fStream = new FileInputStream("noise.txt");
+			fStream = new FileInputStream(noises);
 			in = new DataInputStream(fStream);
 			br = new BufferedReader(new InputStreamReader(in));
 			
