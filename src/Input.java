@@ -1,4 +1,3 @@
-//package core;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +19,7 @@ public class Input {
 		BufferedReader br = null;
 		
 		try{
-			fStream = new FileInputStream("movies.txt");
+			fStream = new FileInputStream("movies2.txt");
 			in = new DataInputStream(fStream);
 			br = new BufferedReader(new InputStreamReader(in));
 			String line;

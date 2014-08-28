@@ -1,4 +1,3 @@
-//package core;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -39,7 +38,7 @@ public class CircularShift {
 	public void addNoise(){
 		ArrayList<String> noise = lineStorage.getWordsToIgnore();
 		for (int i=0; i<noise.size(); i++){
-			noiseWords.add(noise.get(i));
+			noiseWords.add(noise.get(i).toLowerCase());
 		}
 	}
 	
@@ -69,16 +68,32 @@ public class CircularShift {
 		for (int i=0; i<numLines; i++){
 			int numWords = normalLines.get(i).size();
 			for (int j=0; j<numWords; j++){
-				if (!noiseWords.contains(normalLines.get(i).get(j))){
-					String shifted = normalLines.get(i).get(j).toUpperCase();
+				if (!noiseWords.contains(normalLines.get(i).get(j).toLowerCase())){
+					String shifted = firstUpperCase(normalLines.get(i).get(j));
 					for (int k=j+1; k<numWords+j; k++){
 						shifted = shifted.concat(SPACE);
-						shifted = shifted.concat(normalLines.get(i).get(k%numWords).toLowerCase());
+						shifted = shifted.concat(normalLines.get(i).get(k%numWords));
 					}
 					shiftedLines.add(shifted);
 				}
 			}
 		}
+	}
+	
+	// Method to capitalize the first character of a word
+	// @param
+	//		String: input
+	// @return
+	//		String: output
+	private String firstUpperCase(String str){
+		if (str.length()<=1){
+			str = str.toUpperCase();
+		} else {
+			String str1 = str.substring(0, 1);
+			String str2 = str.substring(1);
+			str = str1.toUpperCase().concat(str2.toLowerCase());
+		}
+		return str;
 	}
 	
 	// Method to get the number of shifted lines

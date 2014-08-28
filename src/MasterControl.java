@@ -1,4 +1,3 @@
-//package core;
 import java.io.IOException;
 
 // Class for overall control of all activities
