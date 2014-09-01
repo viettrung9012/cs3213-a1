@@ -35,7 +35,7 @@ public class Input {
 				
 				for(int j=0; j<temp.size(); j++) {
 					ls.setWord(i, j, temp.get(j));	
-					System.out.println(temp.get(j));
+					//System.out.println(temp.get(j));
 				}
 				i++;
 			}
@@ -53,7 +53,7 @@ public class Input {
 				wordsIgnore.add(line);
 			
 			ls.setWordsToIgnore(wordsIgnore);
-			ls.display();
+			//ls.display();
 			
 			br.close();
 		} catch(IOException e) {
