@@ -70,7 +70,8 @@ still
 such
 take
 than
-that the
+that
+the
 their
 them
 then
@@ -98,3 +99,5 @@ with
 would
 you
 your
+-
+&
